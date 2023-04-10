@@ -1,36 +1,38 @@
-<h1>New Customer</h1>
+<div class="max-w-md mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
+  <h1 class="text-xl font-bold text-center mt-8 mb-4">New Customer</h1>
 
-<%= form_with(model: @customer, local: true) do |form| %>
-  <div>
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+  <%= form_with(model: @customer, local: true, class: "p-6") do |form| %>
+    <div class="mb-4">
+      <%= form.label :name, class: "block text-gray-700 font-bold mb-2" %>
+      <%= form.text_field :name, class: "form-input w-full mt-2" %>
+    </div>
+
+    <div class="mb-4">
+      <%= form.label :address, class: "block text-gray-700 font-bold mb-2" %>
+      <%= form.text_field :address, class: "form-input w-full mt-2" %>
+    </div>
+
+    <div class="mb-4">
+      <%= form.label :phone, class: "block text-gray-700 font-bold mb-2" %>
+      <%= form.text_field :phone, class: "form-input w-full mt-2" %>
+    </div>
+
+    <div class="mb-4">
+      <%= form.label :email, class: "block text-gray-700 font-bold mb-2" %>
+      <%= form.text_field :email, class: "form-input w-full mt-2" %>
+    </div>
+
+    <div class="mb-4">
+      <%= form.label :customer_id, class: "block text-gray-700 font-bold mb-2" %>
+      <%= form.number_field :customer_id, class: "form-input w-full mt-2" %>
+    </div>
+
+    <div class="flex justify-end">
+      <%= form.submit "Save", class: "px-4 py-2 bg-green-500 text-white rounded hover:bg-green-400 focus:outline-none focus:shadow-outline-green mt-4" %>
+    </div>
+  <% end %>
+
+  <div class="text-center">
+    <%= link_to 'Back', customers_path, class: "text-sm text-gray-500 hover:text-gray-700 underline mt-4" %>
   </div>
-
-  <div>
-    <%= form.label :address %>
-    <%= form.text_field :address %>
-  </div>
-
-  <div>
-    <%= form.label :phone %>
-    <%= form.text_field :phone %>
-  </div>
-
-  <div>
-    <%= form.label :email %>
-    <%= form.text_field :email %>
-  </div>
-
-  <div>
-    <%= form.label :customer_id %>
-    <%= form.number_field :customer_id %>
-  </div>
-
-  <br>
-
-  <%= form.submit %>
-<% end %>
-
-<br>
-
-<%= link_to 'Back', customers_path %>
+</div>
