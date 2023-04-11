@@ -1,0 +1,32 @@
+<h1>Edit Account</h1>
+
+<%= form_with(model: @account, local: true) do |form| %>
+  <div>
+    <%= form.label :account_number %>
+    <%= form.number_field :account_number %>
+  </div>
+
+  <div>
+    <%= form.label :account_type %>
+    <%= form.text_field :account_type %>
+  </div>
+
+  <div>
+    <%= form.label :balance %>
+    <%= form.number_field :balance %>
+  </div>
+
+  <div>
+    <%= form.label :customer_id %>
+    <%= form.collection_select :customer_id, Customer.all, :id, :name %>
+  </div>
+
+  <br>
+
+  <%= form.submit %>
+<% end %>
+
+<br>
+
+<%= link_to 'Show', @account %> |
+<%= link_to 'Back', accounts_path %>
